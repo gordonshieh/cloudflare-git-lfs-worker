@@ -1,0 +1,6 @@
+name = "git-lfs-cloudflare"
+compatibility_date = "2022-06-12"
+
+[vars]
+AWS_REGION = "us-east-1"
+BUCKET_NAME = "asset-storage"

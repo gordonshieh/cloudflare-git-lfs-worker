@@ -1,0 +1,18 @@
+{
+  "name": "git-lfs-cloudflare",
+  "version": "0.0.0",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.14.1",
+    "typescript": "^4.7.3",
+    "wrangler": "2.0.22"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.129.0",
+    "@aws-sdk/s3-request-presigner": "^3.130.0"
+  },
+  "private": true,
+  "scripts": {
+    "start": "wrangler dev src/index.ts",
+    "deploy": "wrangler publish src/index.ts"
+  }
+}
