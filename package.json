@@ -1,6 +1,7 @@
 {
   "name": "git-lfs-cloudflare",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "license": "apache2",
   "devDependencies": {
     "@cloudflare/workers-types": "^3.14.1",
     "typescript": "^4.7.3",

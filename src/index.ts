@@ -31,7 +31,7 @@ export default {
     env: Env,
     ctx: ExecutionContext
   ): Promise<Response> {
-    if (request.url.endsWith("/info/lfs/objects/batch") && request.method == "POST") {
+    if (request.url.endsWith("/objects/batch") && request.method == "POST") {
       try {
         return batch(request, env);
       } catch (error) {
