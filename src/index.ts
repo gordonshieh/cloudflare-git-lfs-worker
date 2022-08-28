@@ -23,6 +23,7 @@ export interface Env {
     AWS_SECRET_ACCESS_KEY: string;
     R2_ACCOUNT_ID: string;
     BUCKET_NAME: string;
+    TOKEN: string;
 }
 
 export default {
@@ -31,6 +32,12 @@ export default {
     env: Env,
     ctx: ExecutionContext
   ): Promise<Response> {
+    const authHeader = request.headers.get("authorization");
+    const authKey = authHeader?.split(' ')[1];
+    const decodedAuthKey = atob(authKey ? authKey : "");
+    if (decodedAuthKey !== `${env.TOKEN}:`) {
+      return new Response(request.url, {status: 403});
+    }
     if (request.url.endsWith("/objects/batch") && request.method == "POST") {
       try {
         return batch(request, env);
